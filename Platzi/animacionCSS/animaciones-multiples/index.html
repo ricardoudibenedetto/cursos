@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Transformacion punto de origen</title>
+  <style>
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      color: white;
+      font-family: Arial;
+    }
+    .container {
+      border: 1px solid red;
+      width: 100%;
+    }
+    /*.cuadrado:hover {*/
+    .container:hover .cuadrado {
+      animation-play-state: paused;
+    }
+    .cuadrado {
+      width: 150px;
+      height: 150px;
+      background: #7dc900;
+      margin: 20px;
+      border-radius: 50%;
+      /*transition: .3s;*/
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      animation-name: cuadrado,rebote /*rebote*/;
+      animation-duration: 3s, .3s;
+      /*animation-delay: 1s;*/
+      /*animation-iteration-count: 2;*/
+      animation-iteration-count: infinite,20;
+      animation-timing-function: linear,ease-in-out;
+      /*animation-timing-function: ease-in;
+      animation-timing-function: ease-out;
+      animation-timing-function: ease-in-out;
+      animation-timing-function: linear;*/
+      /*animation-timing-function: cubic-bezier(1, 1,1 ,1);*/
+      /*animation-direction: reverse;*/
+      animation-direction: alternate;
+      /*animation-fill-mode: forwards;*/
+      /*animation-play-state: running;*/
+      /*animation-play-state: paused;*/
+      position: relative;
+    }
+    @keyframes cuadrado {
+      0% {
+        /*opacity: 1;*/
+        left: 0;
+      }
+      100% {
+        /*opacity: 0;*/
+        left: calc(100% - 180px);
+        background-color: aqua;
+      }
+    }
+    @keyframes escalera
+    {
+      from{
+        transform: translateY(0);
+      }
+      to{
+        transform: translateY(500px);
+      }
+    }
+    @keyframes rebote
+    {
+      from{
+        transform: translateY(calc(-20px));
+      }
+      to{
+        transform: translateY(calc(25%)) scale(1, .8);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="cuadrado" id="cuadrado">
+      Hola mundo!
+    </div>
+  </div>
+  <script>
+  const $cuadrado = document.getElementById("cuadrado");
+  $cuadrado.addEventListener("animationend", (event)=>{
+    console.log(event.animationName);
+    if(event.animationName ==="rebote")
+    {
+      $cuadrado.style.animationName ="cuadrado,escalera";
+      
+      $cuadrado.style.animationDuration = "3s";
+      $cuadrado.style.animationIterationCount ="infinite, 2";
+    }
+  });
+  $cuadrado.addEventListener("animationend", (event)=>{
+    console.log(event.animationName);
+    if(event.animationName ==="escalera")
+    {
+      $cuadrado.style.animationName ="cuadrado,rebote";
+      
+      $cuadrado.style.animationDuration = "3s , .3s";
+      $cuadrado.style.animationIterationCount ="infinite,20";
+    }
+  });
+  </script>
+</body>
+</html>

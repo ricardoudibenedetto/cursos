@@ -1,0 +1,73 @@
+body{
+  margin: 0%;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgb(6, 3, 34);
+  perspective: 100px;
+}
+
+.container
+{
+  padding: 5%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 4px solid salmon;
+  width: 500px;
+  height: 500px;
+}
+
+.cuadrado
+{
+  width: 10%;
+  height: 60%;
+  margin:2%;
+  animation-duration: 3s;
+  animation-direction: alternate;
+  animation-iteration-count: infinite;
+}
+.cuadrado.a{
+  border: 2px solid goldenrod;
+  animation-name: cuba;
+}
+.cuadrado.b{
+  border: 2px solid salmon;
+  animation-name: cubb;
+ 
+}
+
+@keyframes cubb{
+  from{  transform: translateZ(0px); z-index: 1;}
+
+			17%{ transform: translateZ(0px); z-index: 1;}
+
+			33%{ transform: translateZ(0px) translateX(-40%); z-index: 1; background: salmon;}
+
+			50%{ transform: translateZ(0px) translateX(-40%); z-index: 1;}
+
+			67%{ transform: translateZ(10px) translateX(-40%); z-index: 3;}
+
+			83%{ transform: translateZ(10px) translateX(0px); z-index: 3;}
+
+			to{ transform: translateZ(0px) translateX(0px); z-index: 1;}
+}
+
+@keyframes cuba{
+  from{ transform: translateZ(0px);  z-index: 3;}
+			
+  17%{ transform: translateZ(10px);  z-index: 3;}
+
+  33%{ transform: translateZ(10px) translateX(210%); z-index: 3; background: goldenrod;}
+
+  50%{ transform: translateZ(0px) translateX(210%);  z-index: 1;}
+
+  67%{ transform: translateZ(0px) translateX(210%);  z-index: 1; }
+
+  83%{ transform: translateZ(0px) translateX(0px); z-index: 1;}
+
+  to{ transform: translateZ(0px) translateX(0px); z-index: 1;}
+
+}

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Transform Rotate</title>
+  <style>
+  body{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    color: aliceblue;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  .container
+  {
+    border: 1px solid red ;
+    display: flex;
+    padding: 25px
+  }
+  .cuadrado1,
+  .cuadrado
+  {
+    width: 100px;
+    height: 100px;
+    background: rgb(54, 255, 47);
+    margin: 10px;
+    transition: .3s;
+  }
+  .container:hover .cuadrado
+  {
+    transform: rotate(45deg);
+  }
+  .container:hover .cuadrado1
+  {
+    transform: rotate3d(0,1,0,90deg);
+  }
+
+  
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="cuadrado">
+      hola mundo 
+    </div>
+    <div class="cuadrado1">
+      hola mundo 
+    </div>
+    <div class="cuadrado">
+      hola mundo 
+    </div>
+    <div class="cuadrado1">
+      hola mundo 
+    </div>
+  </div>
+</body>
+</html>
